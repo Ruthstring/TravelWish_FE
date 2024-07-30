@@ -7,6 +7,7 @@ const HeroStyle={
   backgroundPosition: "center",
   backgroundSize:"cover",
   backgroundRepeat:"no-repeat",
+  
   height:"1000px",
    maskImage: "linear-gradient(#E8F1F1 80%, transparent)",
    borderRadius:"3%",
@@ -19,7 +20,7 @@ const Hero = () => {
     <>
     
     <section 
-      className="hero bg-hero-pattern  max-w-screen-md bg-cover bg-center h-screen min-h-screen">
+      className="">
       <div style={HeroStyle} className=" flex items-center justify-center h-full">
       
        <h1 className="text-4xl font-extrabold  text-gray-900 md:text-5xl lg:text-6xl">Dream big</h1>

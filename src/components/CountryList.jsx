@@ -24,25 +24,28 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
             <h2>To Visit</h2>
             <ul>
                 {toVisitCountries.map(country => (
-                    <div className="card relative flex flex-col mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
+                    <div className="card flex mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
                     <li key={country.id}>
-                        {country.country_name}
-                        <div className="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg bg-clip-border rounded-xl bg-blue-gray-500 shadow-blue-gray-500/40">
+                        <h1>{country.country_name}</h1>
+                        
                         <img 
                             src={country.image_url || defaultImage} 
                             alt={country.country_name} 
-                            style={{ width: '100px', height: 'auto', cursor: 'pointer' }} 
                             onClick={() => handleImageClick(country.id)}
+                            style={{cursor:"pointer"}}
+                            
                         />
-                        </div>
+                       
                         <input 
                             id={`file-input-${country.id}`} 
                             type="file" 
                             onChange={(e) => handleImageUpload(e, country.id)} 
                             style={{ display: 'none' }} 
                         />
-                        <button className="btn-primary"
-                            onClick={() => updateVisitedStatus(country.id, true)}>Mark as Visited</button>
+                        <div className="button-line">
+                            <button className="btn-primary"
+                            onClick={() => updateVisitedStatus(country.id, true)}>Visited
+                            </button>
                              <button className="btn-remove" onClick={() => deleteCountry(country.id)}>
                                 <span>remove</span>
                                 <div className="icon">
@@ -50,6 +53,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                                     <i className="fa fa-check"></i>
                                 </div>
                             </button>
+                            </div>
                         {/* <button className="btn-remove"
                             onClick={() => deleteCountry(country.id)}>Delete</button> */}
                     </li>
@@ -59,13 +63,14 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
             <h2>Visited</h2>
             <ul>
                 {visitedCountries.map(country => (
+                    <div className="card flex mt-6 text-gray-700 bg-white shadow-md bg-clip-border rounded-xl w-96">
                     <li key={country.id}>
-                        {country.country_name}
+                        <h1>{country.country_name}</h1>
                         <img 
                             src={country.image_url || defaultImage} 
                             alt={country.country_name} 
-                            style={{ width: '100px', height: 'auto', cursor: 'pointer' }} 
                             onClick={() => handleImageClick(country.id)}
+                            style={{cursor:"pointer"}}
                         />
                         <input 
                             id={`file-input-${country.id}`} 
@@ -76,6 +81,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                         <button className="btn-primary"
                             onClick={() => updateVisitedStatus(country.id, false)}>Mark as Unvisited</button>
                     </li>
+                    </div>
                 ))}
             </ul>
         </div>

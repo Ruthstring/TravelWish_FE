@@ -12,7 +12,7 @@
 
 html,body{
   height:100%;
- background-color: #E8F1F1;
+ /* background-color: #E8F1F1; */
  }
  
  #root {
@@ -39,6 +39,7 @@ html,body{
      font-weight: bold;
      font-size: large;
      padding:5px 10px;
+   
      
    
    }
@@ -57,14 +58,14 @@ html,body{
    }
 
    .btn-remove{
-    display: block;
+    /* display: block; */
     background-color: #c0392b;
     width: 150px;
     height: 50px;
     
     margin: auto;
     color: #fff;
-    position: absolute;
+    position: relative;
     top: 0;
     bottom: 0;
     left: 0;
@@ -168,4 +169,24 @@ html,body{
 .card {
   position: relative;
   margin-bottom: 20px;
+  background-color: #C3D1D2;
 }
+.button-line{
+  display:flex;
+  
+  /* position:relative; */
+  margin:1rem;
+  gap:1rem;
+}
+
+.btn-primary,
+.btn-remove {
+  display: inline-block; /* Makes sure buttons are inline and follow flexbox */
+}
+
+.card img{
+  width:auto;/* Make the image fill the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; 
+}
+
