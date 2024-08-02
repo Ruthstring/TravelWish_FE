@@ -108,7 +108,8 @@ const Map = () => {
     return(
     
 
-<div>
+<div style={{ position: "relative" }}>
+   <h1>My map</h1>
 <button onClick={handleReset}>Reset Colors</button>
       {pickerVisible && selectedCountry && (
         <ColorPicker
@@ -117,6 +118,7 @@ const Map = () => {
           initialColor={colors[selectedCountry]}
           onSave={handleSaveColor}
           onClose={handleClosePicker}
+          className="color-picker"
         />
       )}
        
