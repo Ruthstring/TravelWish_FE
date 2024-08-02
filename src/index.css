@@ -21,7 +21,7 @@ html,body{
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-    background-color: #E8F1F1;
+    
   }
  
   .HeroImg{
@@ -169,7 +169,8 @@ html,body{
 .card {
   position: relative;
   margin-bottom: 20px;
-  background-color: #C3D1D2;
+  /* background-color: #C3D1D2; */
+  background-color: #E8F1F1;
 }
 .button-line{
   display:flex;
