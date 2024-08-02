@@ -1,107 +1,235 @@
-import React from "react";
-import { useState,useEffect } from "react";
+// import React from "react";
+// import { useState,useEffect } from "react";
+// import ColorPicker from "./ColorPicker";
+// import countryNames from "../constants/countryNames";
+
+
+
+// const Map = () => {
+//    const [colors, setColors] = useState({});
+//    const [selectedCountry, setSelectedCountry] = useState(null);
+//    const [pickerVisible, setPickerVisible] = useState(false);
+ 
+//    useEffect(() => {
+//      fetch('http://localhost:8000/map/get-colors')
+//        .then(response => {
+//          if (!response.ok) throw new Error('Network response was not ok');
+//          return response.json();
+//        })
+//        .then(data => setColors(data))
+//        .catch(error => console.error('Error fetching colors:', error));
+//    }, []);
+ 
+//    const handleCountryClick = (event) => {
+//      let countryId = null;
+//      if (event.target.nodeName === 'path' && event.target.parentNode.nodeName === 'g') {
+//        countryId = event.target.parentNode.id;
+//      } else if (event.target.nodeName === 'g') {
+//        countryId = event.target.id;
+//      }
+ 
+//      if (countryId) {
+//        setSelectedCountry(countryId);
+//        setPickerVisible(true);
+//      }
+//    };
+ 
+//    const handleSaveColor = (countryId, newColor) => {
+//      const updatedColors = { ...colors, [countryId]: newColor };
+//      setColors(updatedColors);
+ 
+//      fetch('http://localhost:8000/map/save-color', {
+//        method: 'POST',
+//        headers: {
+//          'Content-Type': 'application/json',
+//        },
+//        body: JSON.stringify({ countryId, color: newColor }),
+//      })
+//        .then(response => {
+//          if (!response.ok) throw new Error('Network response was not ok');
+//          return response.json();
+//        })
+//        .then(data => {
+//          console.log('Color saved:', data);
+//          setPickerVisible(false);
+//        })
+//        .catch((error) => console.error('Error:', error));
+//    };
+ 
+//    useEffect(() => {
+//      const svgElement = document.getElementById('world-map');
+//      svgElement.addEventListener('click', handleCountryClick);
+ 
+//      return () => {
+//        svgElement.removeEventListener('click', handleCountryClick);
+//      };
+//    }, [colors]);
+ 
+//    useEffect(() => {
+//      const svgElement = document.getElementById('world-map');
+//      const countries = svgElement.getElementsByTagName('g');
+ 
+//      for (const country of countries) {
+//        const countryId = country.id;
+//        if (countryId) {
+//          const paths = country.getElementsByTagName('path');
+//          for (const path of paths) {
+//            path.setAttribute('fill', colors[countryId] || '#ccc');
+//          }
+//        }
+//      }
+//    }, [colors]);
+
+//    const handleClosePicker = () => {
+//       setPickerVisible(false);
+//     };
+  
+
+//    const handleReset = async () => {
+//          try {
+//            const response = await fetch('http://localhost:8000/map/clear-colors', {
+//              method: 'DELETE',
+//            });
+//            if (!response.ok) throw new Error('Network response was not ok');
+//            const data = await response.json();
+//            if (data.success) {
+//              setColors({});
+//            }
+//          } catch (error) {
+//            console.error('Error clearing colors:', error);
+//          }
+//        };
+       
+ 
+import React, { useState, useEffect } from "react";
+import jsPDF from "jspdf";
 import ColorPicker from "./ColorPicker";
 import countryNames from "../constants/countryNames";
 
-
-
 const Map = () => {
-   const [colors, setColors] = useState({});
-   const [selectedCountry, setSelectedCountry] = useState(null);
-   const [pickerVisible, setPickerVisible] = useState(false);
- 
-   useEffect(() => {
-     fetch('http://localhost:8000/map/get-colors')
-       .then(response => {
-         if (!response.ok) throw new Error('Network response was not ok');
-         return response.json();
-       })
-       .then(data => setColors(data))
-       .catch(error => console.error('Error fetching colors:', error));
-   }, []);
- 
-   const handleCountryClick = (event) => {
-     let countryId = null;
-     if (event.target.nodeName === 'path' && event.target.parentNode.nodeName === 'g') {
-       countryId = event.target.parentNode.id;
-     } else if (event.target.nodeName === 'g') {
-       countryId = event.target.id;
-     }
- 
-     if (countryId) {
-       setSelectedCountry(countryId);
-       setPickerVisible(true);
-     }
-   };
- 
-   const handleSaveColor = (countryId, newColor) => {
-     const updatedColors = { ...colors, [countryId]: newColor };
-     setColors(updatedColors);
- 
-     fetch('http://localhost:8000/map/save-color', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-       },
-       body: JSON.stringify({ countryId, color: newColor }),
-     })
-       .then(response => {
-         if (!response.ok) throw new Error('Network response was not ok');
-         return response.json();
-       })
-       .then(data => {
-         console.log('Color saved:', data);
-         setPickerVisible(false);
-       })
-       .catch((error) => console.error('Error:', error));
-   };
- 
-   useEffect(() => {
-     const svgElement = document.getElementById('world-map');
-     svgElement.addEventListener('click', handleCountryClick);
- 
-     return () => {
-       svgElement.removeEventListener('click', handleCountryClick);
-     };
-   }, [colors]);
- 
-   useEffect(() => {
-     const svgElement = document.getElementById('world-map');
-     const countries = svgElement.getElementsByTagName('g');
- 
-     for (const country of countries) {
-       const countryId = country.id;
-       if (countryId) {
-         const paths = country.getElementsByTagName('path');
-         for (const path of paths) {
-           path.setAttribute('fill', colors[countryId] || '#ccc');
-         }
-       }
-     }
-   }, [colors]);
+  const [colors, setColors] = useState({});
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [pickerVisible, setPickerVisible] = useState(false);
+  const [pickerPosition, setPickerPosition] = useState({ top: 0, left: 0 });
 
-   const handleClosePicker = () => {
-      setPickerVisible(false);
+  useEffect(() => {
+    fetch('http://localhost:8000/map/get-colors')
+      .then(response => response.json())
+      .then(data => setColors(data))
+      .catch(error => console.error('Error fetching colors:', error));
+  }, []);
+
+  const handleCountryClick = (event) => {
+    let countryId = null;
+    if (event.target.nodeName === 'path' && event.target.parentNode.nodeName === 'g') {
+      countryId = event.target.parentNode.id;
+    } else if (event.target.nodeName === 'g') {
+      countryId = event.target.id;
+    }
+
+    if (countryId) {
+      setSelectedCountry(countryId);
+      setPickerVisible(true);
+
+      const rect = event.target.getBoundingClientRect();
+      setPickerPosition({
+        top: rect.top + window.scrollY,
+        left: rect.left + window.scrollX,
+      });
+    }
+  };
+
+  const handleSaveColor = (countryId, newColor) => {
+    const updatedColors = { ...colors, [countryId]: newColor };
+    setColors(updatedColors);
+
+    fetch('http://localhost:8000/map/save-color', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ countryId, color: newColor }),
+    })
+      .then(response => response.json())
+      .then(() => setPickerVisible(false))
+      .catch((error) => console.error('Error:', error));
+  };
+
+  useEffect(() => {
+    const svgElement = document.getElementById('world-map');
+    svgElement.addEventListener('click', handleCountryClick);
+
+    return () => {
+      svgElement.removeEventListener('click', handleCountryClick);
     };
-  
+  }, [colors]);
 
-   const handleReset = async () => {
-         try {
-           const response = await fetch('http://localhost:8000/map/clear-colors', {
-             method: 'DELETE',
-           });
-           if (!response.ok) throw new Error('Network response was not ok');
-           const data = await response.json();
-           if (data.success) {
-             setColors({});
-           }
-         } catch (error) {
-           console.error('Error clearing colors:', error);
-         }
-       };
-       
- 
+  useEffect(() => {
+    const svgElement = document.getElementById('world-map');
+    const countries = svgElement.getElementsByTagName('g');
 
+    for (const country of countries) {
+      const countryId = country.id;
+      if (countryId) {
+        const paths = country.getElementsByTagName('path');
+        for (const path of paths) {
+          path.setAttribute('fill', colors[countryId] || '#ccc');
+        }
+      }
+    }
+  }, [colors]);
+
+  const handleClosePicker = () => {
+    setPickerVisible(false);
+  };
+
+  const handleReset = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/map/clear-colors', {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        setColors({});
+      }
+    } catch (error) {
+      console.error('Error clearing colors:', error);
+    }
+  };
+
+
+  const handleDownloadPDF = () => {
+   const svgElement = document.getElementById('world-map');
+   const svgData = new XMLSerializer().serializeToString(svgElement);
+   const canvas = document.createElement('canvas');
+   const ctx = canvas.getContext('2d');
+
+   const img = new Image();
+   img.onload = () => {
+       canvas.width = img.width;
+       canvas.height = img.height;
+       ctx.drawImage(img, 0, 0);
+
+       const imgData = canvas.toDataURL('image/png');
+
+       const pdf = new jsPDF({
+           orientation: "landscape",
+           unit: "px",
+           format: "a4",
+       });
+
+       const pdfWidth = pdf.internal.pageSize.getWidth();
+       const pdfHeight = pdf.internal.pageSize.getHeight();
+       const margin = 20; // Define your desired margin size here
+
+       // Calculate new dimensions considering the margin
+       const imgWidth = pdfWidth - 2 * margin;
+       const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+       pdf.addImage(imgData, 'PNG', margin, margin, imgWidth, imgHeight);
+       pdf.save('map.pdf');
+   };
+   img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+};
 
 
 
@@ -111,6 +239,7 @@ const Map = () => {
 <div style={{ position: "relative" }}>
    <h1>My map</h1>
 <button onClick={handleReset}>Reset Colors</button>
+<button onClick={handleDownloadPDF}>Download PDF</button>
       {pickerVisible && selectedCountry && (
         <ColorPicker
           countryId={selectedCountry}
