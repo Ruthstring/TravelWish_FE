@@ -1,105 +1,4 @@
-// import React from "react";
-// import { useState,useEffect } from "react";
-// import ColorPicker from "./ColorPicker";
-// import countryNames from "../constants/countryNames";
 
-
-
-// const Map = () => {
-//    const [colors, setColors] = useState({});
-//    const [selectedCountry, setSelectedCountry] = useState(null);
-//    const [pickerVisible, setPickerVisible] = useState(false);
- 
-//    useEffect(() => {
-//      fetch('http://localhost:8000/map/get-colors')
-//        .then(response => {
-//          if (!response.ok) throw new Error('Network response was not ok');
-//          return response.json();
-//        })
-//        .then(data => setColors(data))
-//        .catch(error => console.error('Error fetching colors:', error));
-//    }, []);
- 
-//    const handleCountryClick = (event) => {
-//      let countryId = null;
-//      if (event.target.nodeName === 'path' && event.target.parentNode.nodeName === 'g') {
-//        countryId = event.target.parentNode.id;
-//      } else if (event.target.nodeName === 'g') {
-//        countryId = event.target.id;
-//      }
- 
-//      if (countryId) {
-//        setSelectedCountry(countryId);
-//        setPickerVisible(true);
-//      }
-//    };
- 
-//    const handleSaveColor = (countryId, newColor) => {
-//      const updatedColors = { ...colors, [countryId]: newColor };
-//      setColors(updatedColors);
- 
-//      fetch('http://localhost:8000/map/save-color', {
-//        method: 'POST',
-//        headers: {
-//          'Content-Type': 'application/json',
-//        },
-//        body: JSON.stringify({ countryId, color: newColor }),
-//      })
-//        .then(response => {
-//          if (!response.ok) throw new Error('Network response was not ok');
-//          return response.json();
-//        })
-//        .then(data => {
-//          console.log('Color saved:', data);
-//          setPickerVisible(false);
-//        })
-//        .catch((error) => console.error('Error:', error));
-//    };
- 
-//    useEffect(() => {
-//      const svgElement = document.getElementById('world-map');
-//      svgElement.addEventListener('click', handleCountryClick);
- 
-//      return () => {
-//        svgElement.removeEventListener('click', handleCountryClick);
-//      };
-//    }, [colors]);
- 
-//    useEffect(() => {
-//      const svgElement = document.getElementById('world-map');
-//      const countries = svgElement.getElementsByTagName('g');
- 
-//      for (const country of countries) {
-//        const countryId = country.id;
-//        if (countryId) {
-//          const paths = country.getElementsByTagName('path');
-//          for (const path of paths) {
-//            path.setAttribute('fill', colors[countryId] || '#ccc');
-//          }
-//        }
-//      }
-//    }, [colors]);
-
-//    const handleClosePicker = () => {
-//       setPickerVisible(false);
-//     };
-  
-
-//    const handleReset = async () => {
-//          try {
-//            const response = await fetch('http://localhost:8000/map/clear-colors', {
-//              method: 'DELETE',
-//            });
-//            if (!response.ok) throw new Error('Network response was not ok');
-//            const data = await response.json();
-//            if (data.success) {
-//              setColors({});
-//            }
-//          } catch (error) {
-//            console.error('Error clearing colors:', error);
-//          }
-//        };
-       
  
 import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
@@ -253,7 +152,7 @@ const Map = () => {
        
        
        
-        <svg id="world-map" width="1404.7773" height="600.81262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <svg id="world-map" width="1404.7773" height="600.81262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style={{ cursor: "pointer" }} >
         <g
            id="layer1"
            transform="translate(470.00002,892.40154)"
