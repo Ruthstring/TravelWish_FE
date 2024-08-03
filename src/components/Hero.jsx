@@ -1,5 +1,5 @@
 import React from 'react'
-import backgroundImage from "../assets/hero_background.png"
+import backgroundImage from "../assets/hero_background2.png"
 
 
 const HeroStyle={
