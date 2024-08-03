@@ -12,6 +12,8 @@ const AddCountryForm = ({ addCountry }) => {
     };
 
     return (
+        <>
+        <h1>My Countries</h1>
         <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
@@ -21,6 +23,7 @@ const AddCountryForm = ({ addCountry }) => {
             />
             <button type="submit">Add Country</button>
         </form>
+        </>
     );
 };
 

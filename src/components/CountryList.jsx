@@ -21,7 +21,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
 
     return (
         <div>
-            <h2>To Visit</h2>
+            <h1>To Visit</h1>
             <Swiper
                 breakpoints={{
                     340: {
@@ -30,11 +30,11 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                     },
                     700: {
                         slidesPerView: 3,
-                        spaceBetween: 15,
+                        spaceBetween: 25,
                     },
                     1024: {
                         slidesPerView: 4,
-                        spaceBetween: 20,
+                        spaceBetween: 30,
                     },
                 }}
                 freeMode={true}
@@ -78,7 +78,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 ))}
             </Swiper>
 
-            <h2>Visited</h2>
+            <h1>Visited</h1>
             <Swiper
                 breakpoints={{
                     340: {
@@ -87,11 +87,11 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                     },
                     700: {
                         slidesPerView: 3,
-                        spaceBetween: 15,
+                        spaceBetween: 25,
                     },
                     1024: {
                         slidesPerView: 4,
-                        spaceBetween: 20,
+                        spaceBetween: 30,
                     },
                 }}
                 freeMode={true}

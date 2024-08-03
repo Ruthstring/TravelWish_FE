@@ -92,7 +92,6 @@ const App = () => {
     return (
         <div>
             <Hero />
-            <h1>My Countries</h1>
             <AddCountryForm addCountry={addCountry} />
             <CountryList countries={countries} deleteCountry={deleteCountry} updateVisitedStatus={updateVisitedStatus} uploadImage={uploadImage} />
             <Map />
