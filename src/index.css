@@ -24,6 +24,19 @@ html,body{
     
   }
  
+  @media (min-width: 1024px) {
+    .hero {
+      background-position: top center;  
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .hero {
+      background-position: center;  
+      background-size: cover;  
+    }
+  }
+
   .HeroImg{
     border-radius: 3%;
      mask-image: linear-gradient(
@@ -337,11 +350,25 @@ html,body{
   display: inline-block; /* Makes sure buttons are inline and follow flexbox */
 }
 
-.card img{
-  width:auto;/* Make the image fill the width of its container */
-  height: auto; /* Maintain aspect ratio */
-  object-fit: cover; 
+
+
+.image-container {
+  width: 100%;
+  padding-top: 75%; /* This maintains a 4:3 aspect ratio */
+  position: relative;
+  overflow: hidden;
 }
+
+.country-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This makes sure the image covers the container without distorting */
+  border-radius: 8px;
+}
+
 
 .color-picker{
   position:relative;

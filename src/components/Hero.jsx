@@ -1,17 +1,19 @@
 import React from 'react'
 import backgroundImage from "../assets/hero_background2.png"
 
-
-const HeroStyle={
+const HeroStyle = {
   backgroundImage: `url(${backgroundImage})`,
-  backgroundPosition: "center",
-  backgroundSize:"cover",
-  backgroundRepeat:"no-repeat",
-  
-  height:"1000px",
-   maskImage: "linear-gradient(#E8F1F1 80%, transparent)",
-   borderRadius:"3%",
+  backgroundPosition: "center top", // Keep the top part visible
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover", // Cover the container but keep aspect ratio
+  height: "100vh", // Full viewport height
+  maskImage: "linear-gradient(#E8F1F1 80%, transparent)",
+  borderRadius: "3%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 };
+
 
 const Hero = () => {
 
