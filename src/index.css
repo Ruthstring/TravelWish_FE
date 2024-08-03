@@ -330,13 +330,19 @@ html,body{
  
 
 
-/* Additional styles for proper positioning */
+/* CARDS */
 .card {
   position: relative;
   margin-bottom: 20px;
   /* background-color: #C3D1D2; */
   background-color: #E8F1F1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.card-title{
+  margin:10px;
+}
+
 .button-line{
   display:flex;
   
@@ -354,7 +360,8 @@ html,body{
 
 .image-container {
   width: 100%;
-  padding-top: 75%; /* This maintains a 4:3 aspect ratio */
+  padding-top: 75%; 
+  margin-bottom:10%;
   position: relative;
   overflow: hidden;
 }
@@ -367,9 +374,126 @@ html,body{
   height: 100%;
   object-fit: cover; /* This makes sure the image covers the container without distorting */
   border-radius: 8px;
+  
 }
 
 
 .color-picker{
   position:relative;
+}
+
+/*DOWNLOAD BUTTON*/
+.download-button {
+  --download-width: 100px;
+  --download-height: 50px;
+  --download-tooltip-height: 35px;
+  --download-tooltip-width: 90px;
+  --download-gap-between-tooltip-to-button: 18px;
+  --download-button-color: #1163ff;
+  --download-tooltip-color: #fff;
+  width: var(--download-width);
+  height: var(--download-height);
+  background: var(--download-button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.45em;
+  font-family: "Arial";
+  transition: background 0.3s;
+}
+
+.download-button::before {
+  position: absolute;
+  content: attr(data-tooltip);
+  width: var(--download-tooltip-width);
+  height: var(--download-tooltip-height);
+  background-color: var(--download-tooltip-color);
+  font-size: 0.9rem;
+  color: #111;
+  border-radius: .25em;
+  line-height: var(--download-tooltip-height);
+  bottom: calc(var(--download-height) + var(--download-gap-between-tooltip-to-button) + 10px);
+  left: calc(50% - var(--download-tooltip-width) / 2);
+}
+
+.download-button::after {
+  position: absolute;
+  content: '';
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: var(--download-tooltip-color);
+  left: calc(50% - 10px);
+  bottom: calc(100% + var(--download-gap-between-tooltip-to-button) - 10px);
+}
+
+.download-button::after,
+.download-button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.download-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button-wrapper,
+.download-text,
+.download-icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.download-text {
+  top: 0;
+}
+
+.download-text,
+.download-icon {
+  transition: top 0.5s;
+}
+
+.download-icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.download-button:hover {
+  background: #6c18ff;
+}
+
+.download-button:hover .download-text {
+  top: -100%;
+}
+
+.download-button:hover .download-icon {
+  top: 0;
+}
+
+.download-button:hover::before,
+.download-button:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.download-button:hover::after {
+  bottom: calc(var(--download-height) + var(--download-gap-between-tooltip-to-button) - 20px);
+}
+
+.download-button:hover::before {
+  bottom: calc(var(--download-height) + var(--download-gap-between-tooltip-to-button));
 }

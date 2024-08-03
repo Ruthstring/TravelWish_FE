@@ -6,6 +6,7 @@ import CountryList from './components/CountryList';
 import AddCountryForm from './components/AddCountryForm';
 import Map from "./components/Map";
 import Hero from './components/Hero';
+import Footer from './components/Footer';
 
 const App = () => {
     const [countries, setCountries] = useState([]);
@@ -95,6 +96,7 @@ const App = () => {
             <AddCountryForm addCountry={addCountry} />
             <CountryList countries={countries} deleteCountry={deleteCountry} updateVisitedStatus={updateVisitedStatus} uploadImage={uploadImage} />
             <Map />
+            <Footer />
         </div>
     );
 };

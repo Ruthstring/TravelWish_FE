@@ -45,7 +45,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 {toVisitCountries.map(country => (
                     <SwiperSlide key={country.id}>
                         <div className="card flex flex-col mt-6 text-gray-700 bg-white shadow-md rounded-xl">
-                            <h1>{country.country_name}</h1>
+                            <h1 className="card-title">{country.country_name}</h1>
                             <div className="image-container">
                                 <img 
                                     src={country.image_url || defaultImage} 
@@ -102,7 +102,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 {visitedCountries.map(country => (
                     <SwiperSlide key={country.id}>
                         <div className="card flex flex-col mt-6 text-gray-700 bg-white shadow-md rounded-xl">
-                            <h1>{country.country_name}</h1>
+                            <h1 className="card-title">{country.country_name}</h1>
                             <div className="image-container">
                                 <img 
                                     src={country.image_url || defaultImage} 

@@ -4,6 +4,8 @@ import React, { useState, useEffect } from "react";
 import jsPDF from "jspdf";
 import ColorPicker from "./ColorPicker";
 import countryNames from "../constants/countryNames";
+import DownloadButton from "./DownloadButton";
+
 
 const Map = () => {
   const [colors, setColors] = useState({});
@@ -138,7 +140,10 @@ const Map = () => {
 <div style={{ position: "relative" }}>
    <h1>My map</h1>
 <button onClick={handleReset}>Reset Colors</button>
-<button onClick={handleDownloadPDF}>Download PDF</button>
+<div onClick={handleDownloadPDF}> {/* Ensure the download action is triggered on click */}
+        <DownloadButton />
+      </div>
+{/* <button onClick={handleDownloadPDF}>Download PDF</button> */}
       {pickerVisible && selectedCountry && (
         <ColorPicker
           countryId={selectedCountry}
