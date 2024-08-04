@@ -10,7 +10,7 @@ const HeroStyle = {
   height: "100vh", // Full viewport height
   maskImage: "linear-gradient(#E8F1F1 80%, transparent)",
   borderRadius: "3%",
-  display: "flex",
+  // display: "flex",
   // alignItems: "center",
   // justifyContent: "center",
 };
@@ -19,7 +19,7 @@ const HeroStyle = {
 const Hero = () => {
 
   return (
-    <div className="flex" style={HeroStyle}>
+    <div className="" style={HeroStyle}>
       <div>
       <Navbar /> {/* Navbar will be on top of the hero image */}
       </div>

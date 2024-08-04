@@ -12,8 +12,9 @@ const AddCountryForm = ({ addCountry }) => {
     };
 
     return (
-        <>
-        <h1>My Countries</h1>
+        <><h1 className="mb-8 mt-20 text-4xl font-extrabold ">My Countries</h1>
+        <div className="m-l5 mt-20" style={{ textAlign: 'left', paddingLeft: '20px' }}>
+        
         <form onSubmit={handleSubmit}>
             <input 
                 type="text" 
@@ -23,6 +24,7 @@ const AddCountryForm = ({ addCountry }) => {
             />
             <button type="submit">Add Country</button>
         </form>
+        </div>
         </>
     );
 };

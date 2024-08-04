@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 import ColorPicker from "./ColorPicker";
 import countryNames from "../constants/countryNames";
 import DownloadButton from "./DownloadButton";
-
+import resetIcon from "../assets/reset_icon.png"
 
 const Map = () => {
   const [colors, setColors] = useState({});
@@ -137,12 +137,36 @@ const Map = () => {
     return(
     
 
-<div style={{ position: "relative" }}>
-   <h1>My map</h1>
-<button onClick={handleReset}>Reset Colors</button>
-<div onClick={handleDownloadPDF}> {/* Ensure the download action is triggered on click */}
+<div className="mb-28" style={{ position: "relative" }}>
+   <h1 className="mb-8 mt-28 text-4xl font-extrabold ">My map</h1>
+   <div className="flex justify-end mr-20 gap-6">
+      <div onClick={handleDownloadPDF}> 
         <DownloadButton />
       </div>
+
+         <button className="reset-button" onClick={handleReset}>
+      <img src={resetIcon} alt="Reset Colors" 
+         style={{ width: '40px', height: '40px', marginBottom: '5px' }} />
+      <p style={{ margin: 0, textAlign: 'center', color: 'grey' }}>Reset colors</p>
+       </button>
+   {/* <button className="reset-button"onClick={handleReset} 
+    style={{ 
+    background: 'transparent', 
+    border: '1px solid grey', 
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
+    cursor: 'pointer', 
+    padding: '5px', 
+    borderRadius: '8px',
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'center' 
+  }}>
+                <img src={resetIcon}  alt="Reset Colors" 
+    style={{ width: '40px', height: '40px', marginBottom: '5px' }}  />
+                <p style={{ margin: 0, textAlign: 'center', color: 'grey' }}>Reset colors</p>
+            </button> */}
+            </div>
+
 {/* <button onClick={handleDownloadPDF}>Download PDF</button> */}
       {pickerVisible && selectedCountry && (
         <ColorPicker

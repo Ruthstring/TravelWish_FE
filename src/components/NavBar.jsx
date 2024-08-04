@@ -1,10 +1,14 @@
 import React from 'react';
+import logoImg from "../assets/logo_travel.png"
 
 const Navbar = () => {
+
     return (
-      <nav className="relative top-0  w-full bg-transparent flex  justify-between items-center p-12">
-        <div className="text-white text-2xl font-bold">My Logo</div>
-        <a href="#footer" className="text-white text-lg ">About</a>
+      <nav className="relative top-0  w-full bg-transparent flex  justify-between p-5 ml-5">
+        <div className="w-36"><img src={logoImg}></img></div>
+        <div className="pr-16 pt-5">
+        <a href="#footer" className="text-black font-bold text-lg ">About</a>
+        </div>
       </nav>
     );
   };

@@ -21,7 +21,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
 
     return (
         <div>
-            <h1>To Visit</h1>
+            <h1 className="font-bold"style={{ textAlign: 'left', paddingLeft: '75px',paddingTop:"60px" }}>To Visit</h1>
             <Swiper
                 breakpoints={{
                     340: {
@@ -40,7 +40,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 freeMode={true}
                 pagination={{ clickable: true }}
                 modules={[FreeMode, Pagination]}
-                className="max-w-[90%] lg:max-w-[80%]"
+                className="max-w-[90%] lg:max-w-[90%]"
             >
                 {toVisitCountries.map(country => (
                     <SwiperSlide key={country.id}>
@@ -78,7 +78,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 ))}
             </Swiper>
 
-            <h1>Visited</h1>
+            <h1 className="font-bold"style={{ textAlign: 'left', paddingLeft: '75px',paddingTop:"60px" }} >Visited</h1>
             <Swiper
                 breakpoints={{
                     340: {
@@ -97,7 +97,7 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 freeMode={true}
                 pagination={{ clickable: true }}
                 modules={[FreeMode, Pagination]}
-                className="max-w-[90%] lg:max-w-[80%]"
+                className="max-w-[90%] lg:max-w-[90%]"
             >
                 {visitedCountries.map(country => (
                     <SwiperSlide key={country.id}>

@@ -3,7 +3,7 @@ import React from 'react';
 
 const DownloadButton = () => {
   return (
-    <div className="download-button" data-tooltip="Size: 20Mb">
+    <div className="download-button mt-5" data-tooltip="Size: 20Mb">
       <div className="download-button-wrapper">
         <div className="download-text">Download PDF</div>
         <span className="download-icon">
