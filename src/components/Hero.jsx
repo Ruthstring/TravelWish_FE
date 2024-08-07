@@ -2,6 +2,7 @@ import React from 'react'
 import backgroundImage from "../assets/hero_background2.png"
 import Navbar from './NavBar';
 
+
 const HeroStyle = {
   backgroundImage: `url(${backgroundImage})`,
   backgroundPosition: "center top", // Keep the top part visible
@@ -24,7 +25,7 @@ const Hero = () => {
       <Navbar /> {/* Navbar will be on top of the hero image */}
       </div>
       <div className="flex flex-col items-center justify-center text-center">
-        <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
+        <h1 className="text-hero text-4xl font-extrabold text-gray-900 md:text-5xl lg:text-6xl">
           Dream big
         </h1>
         <p className="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl">

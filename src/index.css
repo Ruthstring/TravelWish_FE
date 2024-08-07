@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'fontHero';
+  src: local('fontHero'), url('./fonts/fontHero.otf') format('opentype');
+  font-weight: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -35,6 +41,10 @@ html,body{
       background-position: center;  
       background-size: cover;  
     }
+  }
+
+  .text-hero {
+    font-family: "fontHero";
   }
 
   .HeroImg{
