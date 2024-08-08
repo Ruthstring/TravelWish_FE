@@ -25,7 +25,7 @@ html,body{
      max-width: 1500px; 
      height:auto;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     
   }
@@ -45,10 +45,11 @@ html,body{
 
   .text-hero {
     font-family: "fontHero";
+    
   }
 
   .HeroImg{
-    border-radius: 3%;
+    /* border-radius: 3%; */
      mask-image: linear-gradient(
          #E8F1F1 70%,
          transparent
@@ -526,4 +527,24 @@ html,body{
 .reset-button:hover {
   transform: scale(1.05); /* Slightly increase the size */
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.footer-title{
+font-family: "fontHero";
+}
+
+/*TRIAL ANIMATION */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInFromTop 1s ease-out forwards;
 }
