@@ -22,3 +22,9 @@ A dynamic Full-Stack app built using Vite and React, designed to help users plan
 - **Animation:** Utilizes basic CSS animations to enhance UX.
 - **Draggable Elements:** Implemented using a custom dragger for interactive UI components.
 - **Color Picker:** Integrates a color-picker library for customizing map colors.
+
+  ## Possible Future Implementations
+
+### Enhanced User Interaction
+- **User Accounts:** Introducing user accounts to personalize experiences and save user-specific data securely.
+- **Social Features:** Implementing functionality to invite friends and find travel partners with similar destination interests, enhancing the community aspect of the app.
