@@ -55,14 +55,23 @@ html,body{
          transparent
      )
   }
+
+.nav-about:hover{
+  transform: scale(1.5);
+  color: #91e6fc; /* Change text color to a shade of blue */
+ 
+}
+ 
  
   .btn-primary{
      background-color: #A2DEDB;
      border:3px solid #C3D1D2;
-     border-radius: 20px;
+     border-radius: 5px;
      font-weight: bold;
      font-size: large;
-     padding:5px 10px;
+     padding:5px 15px;
+     text-transform: uppercase;
+     
    
      
    
@@ -85,7 +94,7 @@ html,body{
 
 /* Base styles for the button */
 .btn-remove {
-  background-color: #c0392b;
+  background-color: white;
   width: 150px;
   height: 50px;
   margin: auto;
@@ -109,6 +118,7 @@ html,body{
   text-align: center;
   position: absolute;
   top: 0;
+  padding-top: 8px;
   transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
 }
 
@@ -118,11 +128,12 @@ html,body{
   font-size: 22px;
   text-transform: uppercase;
   left: 0;
+  padding-top: 8px;
 }
 
 .btn-remove span:after {
   content: '';
-  background-color: #a53125;
+  background-color: #fafafa;
   width: 2px;
   height: 70%;
   position: absolute;
@@ -199,16 +210,16 @@ html,body{
 
 /* Base styles for the button */
 .btn-remove {
-  background-color: #c0392b;
+  background-color: #ffffff;
   width: 150px;
   height: 50px;
   margin: auto;
-  color: #fff;
+  color:#c3c3c3;
   position: relative;
   cursor: pointer;
   overflow: hidden;
   border-radius: 5px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
   transition: all 0.25s cubic-bezier(0.310, -0.105, 0.430, 1.400);
   display: flex;
   align-items: center;
@@ -237,7 +248,7 @@ html,body{
 
 .btn-remove span:after {
   content: '';
-  background-color: #a53125;
+  background-color:#c3c3c3;
   width: 2px;
   height: 70%;
   position: absolute;
@@ -356,6 +367,13 @@ html,body{
   margin:10px;
 }
 
+.card-visited{
+  /* background-color: #aef3ef; */
+  background-image: linear-gradient(to bottom right, #aef3ef, #61b2d4);
+ 
+}
+
+
 .button-line{
   display:flex;
   
@@ -369,7 +387,12 @@ html,body{
   display: inline-block; /* Makes sure buttons are inline and follow flexbox */
 }
 
-
+.btn-again{
+  background-color: #61b2d4;
+}
+.btn-again:hover{
+  background-color:  #E8F1F1;
+}
 
 .image-container {
   width: 100%;
@@ -397,13 +420,13 @@ html,body{
 
 /*DOWNLOAD BUTTON*/
 .download-button {
-  --download-width: 100px;
-  --download-height: 50px;
+  --download-width: 120px;
+  --download-height: 70px;
   --download-tooltip-height: 35px;
   --download-tooltip-width: 90px;
   --download-gap-between-tooltip-to-button: 18px;
   --download-button-color: #A2DEDB;
-  --download-tooltip-color: #fff;
+  --download-tooltip-color:#C3D1D2;
   width: var(--download-width);
   height: var(--download-height);
   background: var(--download-button-color);
@@ -412,7 +435,7 @@ html,body{
   border-radius: 0.45em;
   font-family: "Arial";
   transition: background 0.3s;
-  padding-left:"5px";
+  /* padding-left:"5px"; */
 }
 
 .download-button::before {
@@ -452,6 +475,8 @@ html,body{
   align-items: center;
   justify-content: center;
  
+ 
+ 
 }
 
 .download-button-wrapper,
@@ -462,13 +487,17 @@ html,body{
   width: 100%;
   height: 100%;
   left: 0;
-  color: rgb(254, 254, 254);
+  color:white;
+  font-weight: bold;
+  
   
 }
 
 .download-text {
   top: 0;
-}
+  padding-left:15px;
+
+padding-right:15px;}
 
 .download-text,
 .download-icon {
@@ -484,8 +513,8 @@ html,body{
 }
 
 .download-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 }
 
 .download-button:hover {
@@ -553,3 +582,14 @@ font-family: "fontHero";
 .animate-slide-in {
   animation: slideInFromTop 1s ease-out forwards;
 }
+
+
+/*test navigation buttons*/
+.swiper-button-next,
+.swiper-button-prev {
+    
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 10px;
+    border-radius: 50%;
+}
+

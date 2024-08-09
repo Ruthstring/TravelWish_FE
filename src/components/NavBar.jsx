@@ -6,8 +6,8 @@ const Navbar = () => {
     return (
       <nav className="relative top-0  w-full bg-transparent flex  justify-between p-5 ml-5">
         <div className="w-36"><img src={logoImg}></img></div>
-        <div className="pr-16 pt-5">
-        <a href="#footer" className="text-black font-bold text-2xl ">About</a>
+        <div className="data-container pr-16 pt-5">
+           <a href="#footer" className="nav-about text-black font-bold text-2xl ">About</a>
         </div>
       </nav>
     );

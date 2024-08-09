@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
-import { FreeMode, Pagination } from 'swiper/modules';
+import { FreeMode, Pagination, Navigation } from 'swiper/modules';
 import defaultImage from "../assets/default-image.jpg";
 
 const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImage }) => {
@@ -39,7 +39,8 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 }}
                 freeMode={true}
                 pagination={{ clickable: true }}
-                modules={[FreeMode, Pagination]}
+                modules={[FreeMode, Pagination, Navigation, ]}
+                navigation={true}
                 className="max-w-[90%] lg:max-w-[90%]"
             >
                 {toVisitCountries.map(country => (
@@ -61,11 +62,11 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                                     style={{ display: 'none' }} 
                                 />
                             </div>
-                            <div className="button-line mt-4 flex justify-between">
+                            <div className="button-line mt-4 flex justify-end">
                                 <button className="btn-primary" onClick={() => updateVisitedStatus(country.id, true)}>
                                     Visited
                                 </button>
-                                <button className="btn-remove" onClick={() => deleteCountry(country.id)}>
+                                <button className="btn-remove " onClick={() => deleteCountry(country.id)}>
                                     <span>Remove</span>
                                     <div className="icon">
                                         <i className="fa fa-remove"></i>
@@ -96,12 +97,13 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                 }}
                 freeMode={true}
                 pagination={{ clickable: true }}
-                modules={[FreeMode, Pagination]}
+                modules={[FreeMode, Pagination, Navigation]}
+                navigation={true}
                 className="max-w-[90%] lg:max-w-[90%]"
             >
                 {visitedCountries.map(country => (
                     <SwiperSlide key={country.id}>
-                        <div className="card flex flex-col mt-6 text-gray-700 bg-white shadow-md rounded-xl">
+                        <div className="card card-visited flex flex-col mt-6 shadow-md rounded-xl">
                             <h1 className="card-title">{country.country_name}</h1>
                             <div className="image-container">
                                 <img 
@@ -119,10 +121,10 @@ const CountryList = ({ countries, updateVisitedStatus, deleteCountry, uploadImag
                                     
                                 />
                             </div>
-                            <div className="button-line mt-4">
-                                <button className="btn-primary" 
+                            <div className="button-line mt-4 flex justify-end">
+                                <button className="btn-primary btn-again mb-1 mr-1" 
                                         onClick={() => updateVisitedStatus(country.id, false)}>
-                                    Mark as Unvisited
+                                    Visit again
                                 </button>
                             </div>
                         </div>
