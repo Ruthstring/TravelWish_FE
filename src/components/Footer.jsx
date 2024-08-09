@@ -42,27 +42,3 @@ const Footer = () => {
 
 export default Footer;
 
-// import React from 'react';
-
-// const Footer = () => {
-//   return (
-//     <footer id="footer" className="bg-gray-800 text-white p-6 flex cols-2">
-//       <div>
-//         <h1>What's next?</h1>
-//       </div>
-//       <div className="container mx-auto">
-//         <h1>About me</h1>
-//         <p className="text-center mt-2"> I have developed this app with 4 months into Web Dev</p>
-//         <p className="text-center"> Working with passion. Learning fast.</p>
-//         <p className="text-center mt-2">&copy; 2024 My Website. All rights reserved.</p>
-        
-//       </div>
-//       <div>
-//         <h1>Contact</h1>
-//         <p>Do you want to know more?</p>
-//       </div>
-//     </footer>
-//   );
-// };
-
-// export default Footer;

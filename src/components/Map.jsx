@@ -120,7 +120,7 @@ const Map = () => {
 
        const pdfWidth = pdf.internal.pageSize.getWidth();
        const pdfHeight = pdf.internal.pageSize.getHeight();
-       const margin = 20; // Define your desired margin size here
+       const margin = 20; 
 
        // Calculate new dimensions considering the margin
        const imgWidth = pdfWidth - 2 * margin;
@@ -139,35 +139,19 @@ const Map = () => {
 
 <div className="mb-28" style={{ position: "relative" }}>
    <h1 className="mb-8 mt-28 text-4xl font-extrabold ">My map</h1>
-   <div className="flex justify-end mr-20 gap-6">
+   <div className="flex justify-end mr-20 mb-6 gap-6">
       <div onClick={handleDownloadPDF}> 
         <DownloadButton />
       </div>
 
          <button className="reset-button" onClick={handleReset}>
-      <img src={resetIcon} alt="Reset Colors" 
-         style={{ width: '40px', height: '40px', marginBottom: '5px' }} />
-      <p style={{ margin: 0, textAlign: 'center', color: 'grey' }}>Reset colors</p>
-       </button>
-   {/* <button className="reset-button"onClick={handleReset} 
-    style={{ 
-    background: 'transparent', 
-    border: '1px solid grey', 
-    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', 
-    cursor: 'pointer', 
-    padding: '5px', 
-    borderRadius: '8px',
-    display: 'flex', 
-    flexDirection: 'column', 
-    alignItems: 'center' 
-  }}>
-                <img src={resetIcon}  alt="Reset Colors" 
-    style={{ width: '40px', height: '40px', marginBottom: '5px' }}  />
-                <p style={{ margin: 0, textAlign: 'center', color: 'grey' }}>Reset colors</p>
-            </button> */}
+            <img src={resetIcon} alt="Reset Colors" 
+               style={{ width: '40px', height: '40px', marginBottom: '5px' }} />
+            <p style={{ margin: 0, textAlign: 'center', color: 'grey' }}>Reset colors</p>
+         </button>
+   
             </div>
 
-{/* <button onClick={handleDownloadPDF}>Download PDF</button> */}
       {pickerVisible && selectedCountry && (
         <ColorPicker
           countryId={selectedCountry}
@@ -181,7 +165,7 @@ const Map = () => {
        
        
        
-        <svg id="world-map" width="1404.7773" height="600.81262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style={{ cursor: "pointer" }} >
+        <svg id="world-map" width="1404.7773" height="600.81262" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" style={{ cursor: "pointer" }} >
         <g
            id="layer1"
            transform="translate(470.00002,892.40154)"

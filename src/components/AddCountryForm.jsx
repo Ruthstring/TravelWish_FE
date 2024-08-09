@@ -14,7 +14,7 @@ const AddCountryForm = ({ addCountry }) => {
     return (
         <>
             <h1 className="mb-8 mt-10 text-4xl font-extrabold">My Countries</h1>
-            <div classname="flex gap-4 ">
+            <div className=" ">
             <form onSubmit={handleSubmit} className="max-w-md mx-auto  flex gap-4">
                 <div className="relative flex items-center w-full h-14 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
                     <div className="grid place-items-center h-full w-14 text-gray-300">
@@ -41,35 +41,3 @@ const AddCountryForm = ({ addCountry }) => {
 
 export default AddCountryForm;
 
-// import React, { useState } from 'react';
-
-// const AddCountryForm = ({ addCountry }) => {
-//     const [name, setName] = useState('');
-
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         if (name) {
-//             addCountry(name);
-//             setName('');
-//         }
-//     };
-
-//     return (
-//         <><h1 className="mb-8 mt-20 text-4xl font-extrabold ">My Countries</h1>
-//         <div className="m-l5 mt-20" style={{ textAlign: 'left', paddingLeft: '20px' }}>
-        
-//         <form onSubmit={handleSubmit}>
-//             <input 
-//                 type="text" 
-//                 value={name} 
-//                 onChange={(e) => setName(e.target.value)} 
-//                 placeholder="Enter country name" 
-//             />
-//             <button type="submit">Add Country</button>
-//         </form>
-//         </div>
-//         </>
-//     );
-// };
-
-// export default AddCountryForm;

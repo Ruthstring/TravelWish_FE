@@ -29,6 +29,13 @@ html,body{
     text-align: center;
     
   }
+
+  h1{
+    font-size: 30px;
+   }
+
+  /*---- COMPONENTS ----*/
+  /*HERO*/
  
   @media (min-width: 1024px) {
     .hero {
@@ -61,7 +68,33 @@ html,body{
   color: #91e6fc; /* Change text color to a shade of blue */
  
 }
+
+/* HERO ANIMATION */
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slideInFromTop 1s ease-out forwards;
+}
+
+ /*FOOTER*/
  
+.footer-title{
+  font-family: "fontHero";
+  }
+
+  
+
+/*----- BUTTONS ----*/
+/* PRIMARY */
  
   .btn-primary{
      background-color: #A2DEDB;
@@ -70,12 +103,9 @@ html,body{
      font-weight: bold;
      font-size: large;
      padding:5px 15px;
-     text-transform: uppercase;
-     
-   
-     
-   
+     text-transform: uppercase;  
    }
+
    .btn-primary:hover{
      box-shadow:3px ;
      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.5);
@@ -88,11 +118,9 @@ html,body{
      border:3px solid #FEFEFE;
    }
 
-   h1{
-    font-size: 30px;
-   }
+  
 
-/* Base styles for the button */
+/* REMOVE */
 .btn-remove {
   background-color: white;
   width: 150px;
@@ -174,7 +202,6 @@ html,body{
   display: inline-block;
 }
 
-/* Hover state */
 .btn-remove:hover {
   opacity: 0.9;
 }
@@ -183,11 +210,9 @@ html,body{
   height: 46px;
 }
 
-/* Active state */
 .btn-remove:active {
   opacity: 1;
 }
-
 
 
 @media (max-width: 1500px) {
@@ -206,7 +231,6 @@ html,body{
       font-size: 30px;
   }
 }
-
 
 /* Base styles for the button */
 .btn-remove {
@@ -354,7 +378,7 @@ html,body{
  
 
 
-/* CARDS */
+/* ---- CARDS ---- */
 .card {
   position: relative;
   margin-bottom: 20px;
@@ -372,7 +396,6 @@ html,body{
   background-image: linear-gradient(to bottom right, #aef3ef, #61b2d4);
  
 }
-
 
 .button-line{
   display:flex;
@@ -474,9 +497,6 @@ html,body{
   display: flex;
   align-items: center;
   justify-content: center;
- 
- 
- 
 }
 
 .download-button-wrapper,
@@ -488,9 +508,7 @@ html,body{
   height: 100%;
   left: 0;
   color:white;
-  font-weight: bold;
-  
-  
+  font-weight: bold; 
 }
 
 .download-text {
@@ -563,28 +581,8 @@ padding-right:15px;}
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
-.footer-title{
-font-family: "fontHero";
-}
 
-/*TRIAL ANIMATION */
-@keyframes slideInFromTop {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.animate-slide-in {
-  animation: slideInFromTop 1s ease-out forwards;
-}
-
-
-/*test navigation buttons*/
+/*Navigation buttons SWIPER*/
 .swiper-button-next,
 .swiper-button-prev {
     
