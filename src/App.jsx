@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Puff } from 'react-loader-spinner';
 
+
 import CountryList from './components/CountryList';
 import AddCountryForm from './components/AddCountryForm';
 import Map from "./components/Map";
@@ -12,9 +13,11 @@ const App = () => {
     const [countries, setCountries] = useState([]);
     const [loading, setLoading] = useState(true); // Initialize loading state
 
+    const apiUrl = process.env.REACT_APP_API_URL;
+
     const fetchCountries = async () => {
         try {
-            const response = await axios.get('http://localhost:8000/countries');
+            const response = await axios.get(`${apiUrl}/countries`);
             setCountries(response.data);
             setLoading(false); // Set loading to false once data is fetched
         } catch (error) {
@@ -29,7 +32,7 @@ const App = () => {
 
     const addCountry = async (name) => {
         try {
-            const response = await axios.post('http://localhost:8000/countries', { country_name: name, visited: false });
+            const response = await axios.post(`${apiUrl}/countries`, { country_name: name, visited: false });
             setCountries([...countries, response.data]);
         } catch (error) {
             console.error('Error adding country:', error);
@@ -38,7 +41,7 @@ const App = () => {
 
     const deleteCountry = async (id) => {
         try {
-            await axios.delete(`http://localhost:8000/countries/${id}`);
+            await axios.delete(`${apiUrl}/countries/${id}`);
             setCountries(countries.filter(country => country.id !== id));
         } catch (error) {
             console.error('Error deleting country:', error);
@@ -47,7 +50,7 @@ const App = () => {
 
     const updateVisitedStatus = async (id, visited) => {
         try {
-            const response = await axios.put(`http://localhost:8000/countries/${id}`, { visited });
+            const response = await axios.put(`${apiUrl}/countries/${id}`, { visited });
             setCountries(countries.map(country =>
                 country.id === id ? { ...country, visited: response.data.visited } : country
             ));
@@ -62,14 +65,14 @@ const App = () => {
         formData.append('countryId', countryId);
 
         try {
-            const response = await axios.post('http://localhost:8000/pictures/upload', formData, {
+            const response = await axios.post(`${apiUrl}/pictures/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
             const { url } = response.data;
 
-            await axios.put(`http://localhost:8000/countries/${countryId}`, { image_url: url });
+            await axios.put(`${apiUrl}/countries/${countryId}`, { image_url: url });
             fetchCountries();
         } catch (error) {
             console.error('Image upload error:', error);
