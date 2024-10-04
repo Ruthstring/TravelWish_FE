@@ -13,11 +13,11 @@ const Map = () => {
   const [pickerVisible, setPickerVisible] = useState(false);
   const [pickerPosition, setPickerPosition] = useState({ top: 0, left: 0 });
 
-  const apiUrl = process.env.REACT_APP_API_URL;
+ 
 
 
   useEffect(() => {
-    fetch(`${apiUrl}/map/get-colors`)
+    fetch(`${import.meta.env.VITE_API_URL}/map/get-colors`)
       .then(response => response.json())
       .then(data => setColors(data))
       .catch(error => console.error('Error fetching colors:', error));
@@ -47,7 +47,7 @@ const Map = () => {
     const updatedColors = { ...colors, [countryId]: newColor };
     setColors(updatedColors);
 
-    fetch(`${apiUrl}/map/save-color`, {
+    fetch(`${import.meta.env.VITE_API_URL}/map/save-color`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ const Map = () => {
 
   const handleReset = async () => {
     try {
-      const response = await fetch(`${apiUrl}/map/clear-colors`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/map/clear-colors`, {
         method: 'DELETE',
       });
       if (response.ok) {
